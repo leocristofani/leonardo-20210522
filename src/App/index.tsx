@@ -3,15 +3,20 @@ import { Box, Container, CssBaseline, ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import AppBg from "./AppBg";
 import OrderBook from "../OrderBook";
+import getConfig from "../config";
 
 function App() {
+  const config = getConfig();
+
+  console.log(config);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBg />
       <Container maxWidth="md">
         <Box mt={6}>
-          <OrderBook productName="XBT/USD" />
+          <OrderBook {...config} />
         </Box>
       </Container>
     </ThemeProvider>

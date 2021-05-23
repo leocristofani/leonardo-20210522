@@ -5,10 +5,9 @@ import OrderBookErrorBoundary from "./components/OrderBookErrorBoundary";
 import PriceGroupControl from "./components/PriceGroupControl";
 import PriceLevelList from "./components/PriceLevelList";
 import ProductName from "./components/ProductName";
+import { OrderBookConfig } from "./types";
 
-interface Props {
-  productName: string;
-}
+type Props = OrderBookConfig;
 
 function OrderBook({ productName }: Props) {
   return (
