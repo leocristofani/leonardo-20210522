@@ -1,6 +1,6 @@
 import { PriceLevel } from "../../types";
 import PriceLevelListHeader from "../PriceLevelListHeader";
-import { PriceLevelListItem } from "../PriceLevelListItem";
+import PriceLevelListItem from "../PriceLevelListItem";
 
 export interface Props {
   isBid?: boolean;

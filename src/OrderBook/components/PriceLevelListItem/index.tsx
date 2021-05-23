@@ -2,8 +2,8 @@ import { Grid, useTheme } from "@material-ui/core";
 
 import useStyles from "./styles";
 import { PriceLevel } from "../../types";
-import PriceLevelListItemBar from "../PriceLevelListItemBar";
-import PriceLevelListItemValue from "../PriceLevelListItemValue";
+import PriceLevelListItemBar from "./PriceLevelListItemBar";
+import PriceLevelListItemValue from "./PriceLevelListItemValue";
 
 export interface Props {
   isBid: boolean;
@@ -11,7 +11,11 @@ export interface Props {
   priceLevel: PriceLevel;
 }
 
-export function PriceLevelListItem({ isBid, priceLevel, maxTotal }: Props) {
+export default function PriceLevelListItem({
+  isBid,
+  priceLevel,
+  maxTotal,
+}: Props) {
   const styles = useStyles({ isBid });
 
   const { palette } = useTheme();

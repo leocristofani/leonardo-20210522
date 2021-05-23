@@ -12,6 +12,7 @@ export default function PriceLevelListItemBar({ isBid, width }: Props) {
 
   return (
     <Box
+      data-testid="price-level-list-item-bar"
       className={styles.root}
       /**
        * PS. For performance reasons:
