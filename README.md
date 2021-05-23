@@ -58,9 +58,12 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 - React Testing Library
 - React Hooks Testing Library
 
-## Code considerations
+## Roadmap
 
-- Use a service like Sentry to report errors
-- Use socket.io instead because it supports older browsers by falling back to `long polling`
-- Save the selected price group in LocalStorage, so when the user reloads the page it still shows the last selected price group.
-- Increase the test coverage, but unit, integration and e2e tests. For now, there's only one e2e test that serves more as a smoke test to give us some confidence before going to production.
+1. Use Sentry to report errors instead of `console.log`
+2. Unsubscribe from deltas when the user blurs from the window tab, and subscribe when the user comes back
+3. Increase test coverage - unit, integration and e2e tests
+4. Persist the last selected price group in LocalStorage to provider the user with a better experience
+5. Make the OrderBook vertically responsive, as well
+6. Let the user select the OrderBook project
+7. Consider [Socket.io](https://socket.io/) instead of native WebSocket in case we need to support older browsers
