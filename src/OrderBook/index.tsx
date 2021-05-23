@@ -1,4 +1,5 @@
 import { Box, Grid, Paper } from "@material-ui/core";
+// import Loader from "./components/Loader";
 
 import PriceGroupControl from "./components/PriceGroupControl";
 import PriceLevelList from "./components/PriceLevelList";
@@ -10,6 +11,7 @@ export default function OrderBook() {
       <ProductName>XBT/USD</ProductName>
       <Paper elevation={2}>
         <Box p={3}>
+          {/* <Loader /> */}
           <Box mb={2}>
             <PriceGroupControl />
           </Box>
