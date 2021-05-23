@@ -19,7 +19,14 @@ function OrderBook({
   initialPriceGroup,
   minUpdateInterval,
 }: Props) {
-  const { bids, asks, onSnapshot, onDelta } = useOrderBookState();
+  /**
+   * TODO: Turn into an env. variable
+   */
+  const maxNumberOfPriceLevels = 15;
+
+  const { bids, asks, onSnapshot, onDelta } = useOrderBookState(
+    maxNumberOfPriceLevels
+  );
 
   const { emitEvent, connecting } = useOrderBookApi({
     apiUrl,

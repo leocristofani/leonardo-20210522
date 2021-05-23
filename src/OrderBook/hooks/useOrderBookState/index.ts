@@ -10,7 +10,11 @@ import {
   setTotal,
 } from "./utils";
 
-export default function useOrderBookState() {
+/**
+ * Reponsible for the order book state.
+ * @param maxNumberOfPriceLevels the number of bids and asks to return
+ */
+export default function useOrderBookState(maxNumberOfPriceLevels: number) {
   const [state, setState] = useState<OrderBookState>({
     bids: {},
     asks: {},
@@ -33,7 +37,11 @@ export default function useOrderBookState() {
   return {
     onDelta,
     onSnapshot,
-    bids: setTotal(getFirst(sortByPrice(state.bids, "desc"), 15)),
-    asks: setTotal(getFirst(sortByPrice(state.asks, "asc"), 15)),
+    bids: setTotal(
+      getFirst(sortByPrice(state.bids, "desc"), maxNumberOfPriceLevels)
+    ),
+    asks: setTotal(
+      getFirst(sortByPrice(state.asks, "asc"), maxNumberOfPriceLevels)
+    ),
   };
 }

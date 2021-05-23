@@ -43,6 +43,7 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 - Create React App
 - Web Socket (native browser API)
 - React Testing Library
+- React Hooks Testing Library
 - Faker (generate random data for tests)
 
 ## Code Considerations
