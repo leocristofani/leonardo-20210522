@@ -15,6 +15,13 @@ Run `yarn build` to create a production version of the project in the `build` fo
 
 As you can see from the env. variables file, you can build the orderbook to show information about any project, as long as you sypply the correct project id and project name.
 
+## How to run tests?
+
+There are both unit and integration tests with Jest. You can run these tests with the following commands:
+
+`yarn test` - run tests once
+`yarn test:watch` - run tests during development to watch for changes
+
 ## Environment Variables
 
 PS. Environment variables have to be prefixed with `REACT_APP_` because it's required by [Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/).
@@ -35,6 +42,8 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 - Material UI
 - Create React App
 - Web Socket (native browser API)
+- React Testing Library
+- Faker (generate random data for tests)
 
 ## Code Considerations
 
