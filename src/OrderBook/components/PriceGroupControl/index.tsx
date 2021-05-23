@@ -3,17 +3,17 @@ import { Box, Typography } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import RemoveIcon from "@material-ui/icons/RemoveCircleOutlineOutlined";
 
-import PriceGroupControlButton from "../PriceGroupControlButton";
+import PriceGroupControlButton from "./PriceGroupControlButton";
 import { PriceGroup, PriceGroupOptions } from "../../types";
 
-interface Props {
-  initialPriceGroup: PriceGroup;
+export interface Props {
+  priceGroup: PriceGroup;
   onChange: (currentPriceGroup: PriceGroup, nextPriceGroup: PriceGroup) => void;
 }
 
-function PriceGroupControl({ initialPriceGroup, onChange }: Props) {
+function PriceGroupControl({ priceGroup, onChange }: Props) {
   const [priceGroupIndex, setPriceGroupIndex] = useState<PriceGroup>(
-    PriceGroupOptions.indexOf(initialPriceGroup)
+    PriceGroupOptions.indexOf(priceGroup)
   );
 
   const makeClickHandler = useCallback(

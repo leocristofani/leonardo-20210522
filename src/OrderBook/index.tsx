@@ -49,7 +49,7 @@ function OrderBook({
             <>
               <Box mb={2}>
                 <PriceGroupControl
-                  initialPriceGroup={initialPriceGroup}
+                  priceGroup={initialPriceGroup}
                   onChange={handlePriceGroupChange}
                 />
               </Box>

@@ -26,7 +26,7 @@ function arrangeTest(props = defaultProps, theme: Theme = appTheme) {
 describe("PriceLevelListItem", () => {
   it("renders the formatted total", () => {
     const total = 650000;
-    const props = {
+    const props: Props = {
       ...defaultProps,
       priceLevel: { ...defaultProps.priceLevel, total },
     };
@@ -38,7 +38,7 @@ describe("PriceLevelListItem", () => {
 
   it("renders the formatted size", () => {
     const size = 200;
-    const props = {
+    const props: Props = {
       ...defaultProps,
       priceLevel: { ...defaultProps.priceLevel, size },
     };
@@ -51,7 +51,7 @@ describe("PriceLevelListItem", () => {
   describe("renders the price", () => {
     it("formatted", () => {
       const price = 3000;
-      const props = {
+      const props: Props = {
         ...defaultProps,
         priceLevel: { ...defaultProps.priceLevel, price },
       };
@@ -63,7 +63,7 @@ describe("PriceLevelListItem", () => {
 
     it("with bid color (green)", () => {
       const price = 3000;
-      const props = {
+      const props: Props = {
         ...defaultProps,
         isBid: true,
         priceLevel: {
@@ -81,7 +81,7 @@ describe("PriceLevelListItem", () => {
 
     it("with ask color (red)", () => {
       const price = 3000;
-      const props = {
+      const props: Props = {
         ...defaultProps,
         priceLevel: {
           ...defaultProps.priceLevel,
@@ -101,7 +101,7 @@ describe("PriceLevelListItem", () => {
     it("renders the relative total bar", () => {
       const maxTotal = 1000;
       const total = 200;
-      const props = {
+      const props: Props = {
         ...defaultProps,
         priceLevel: {
           ...defaultProps.priceLevel,
@@ -118,7 +118,7 @@ describe("PriceLevelListItem", () => {
     });
 
     it("with bid color (green)", () => {
-      const props = { ...defaultProps, isBid: true };
+      const props: Props = { ...defaultProps, isBid: true };
       const lightGreen = "#c8e6c9";
 
       const theme: Theme = {
@@ -140,7 +140,7 @@ describe("PriceLevelListItem", () => {
     });
 
     it("with ask color (red)", () => {
-      const props = { ...defaultProps, isBid: true };
+      const props: Props = { ...defaultProps, isBid: true };
       const lightRed = "#ffcdd2";
 
       const theme: Theme = {

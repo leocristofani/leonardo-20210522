@@ -18,16 +18,17 @@ export default function PriceGroupControlButton({
   onClick,
   children,
 }: Props) {
-  return (
-    <Tooltip title={title}>
-      <IconButton
-        size="small"
-        color="primary"
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {children}
-      </IconButton>
-    </Tooltip>
+  const button = (
+    <IconButton
+      size="small"
+      color="primary"
+      onClick={onClick}
+      disabled={disabled}
+      data-testid={`price-control-button-${title}`}
+    >
+      {children}
+    </IconButton>
   );
+
+  return disabled ? button : <Tooltip title={title}>{button}</Tooltip>;
 }
