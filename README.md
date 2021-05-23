@@ -1,5 +1,7 @@
 # OrderBook
 
+Live Demo: https://leonardo-20210523.netlify.app/
+
 ## How to run the project?
 
 1. Open the terminal
@@ -43,15 +45,22 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 
 ## Technology stack
 
+#### Implementation
+
 - React
 - Material UI
 - Create React App
 - Web Socket (native browser API)
+
+#### Testing
+
+- Cypress
 - React Testing Library
 - React Hooks Testing Library
 
-## Code sonsiderations
+## Code considerations
 
 - Use a service like Sentry to report errors
 - Use socket.io instead because it supports older browsers by falling back to `long polling`
 - Save the selected price group in LocalStorage, so when the user reloads the page it still shows the last selected price group.
+- Increase the test coverage, but unit, integration and e2e tests. For now, there's only one e2e test that serves more as a smoke test to give us some confidence before going to production.
