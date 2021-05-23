@@ -1,32 +1,68 @@
+import { useCallback } from "react";
 import { Box, Grid, Paper } from "@material-ui/core";
 
 import OrderBookErrorBoundary from "./components/OrderBookErrorBoundary";
-// import OrderBookLoader from "./components/OrderBookLoader";
+import OrderBookLoader from "./components/OrderBookLoader";
 import PriceGroupControl from "./components/PriceGroupControl";
 import PriceLevelList from "./components/PriceLevelList";
 import ProductName from "./components/ProductName";
-import { OrderBookConfig } from "./types";
+import useOrderBookApi from "./hooks/useOrderBookApi";
+import useOrderBookState from "./hooks/useOrderBookState";
+import { OrderBookConfig, PriceGroup } from "./types";
 
 type Props = OrderBookConfig;
 
-function OrderBook({ productName }: Props) {
+function OrderBook({
+  apiUrl,
+  productId,
+  productName,
+  initialPriceGroup,
+  minUpdateInterval,
+}: Props) {
+  const { bids, asks, onSnapshot, onDelta } = useOrderBookState();
+
+  const { emitEvent, connecting } = useOrderBookApi({
+    apiUrl,
+    productId,
+    minUpdateInterval,
+    onDelta,
+    onSnapshot,
+    initialEvent: { type: "subscribe", priceGroup: initialPriceGroup },
+  });
+
+  const handlePriceGroupChange = useCallback(
+    (currentPriceGroup: PriceGroup, nextPriceGroup: PriceGroup) => {
+      emitEvent({ type: "unsubscribe", priceGroup: currentPriceGroup });
+      emitEvent({ type: "subscribe", priceGroup: nextPriceGroup });
+    },
+    [emitEvent]
+  );
+
   return (
     <>
       <ProductName>{productName}</ProductName>
       <Paper elevation={2}>
         <Box p={3}>
-          {/* <OrderBookLoader /> */}
-          <Box mb={2}>
-            <PriceGroupControl />
-          </Box>
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-              <PriceLevelList isBid />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <PriceLevelList />
-            </Grid>
-          </Grid>
+          {connecting ? (
+            <OrderBookLoader />
+          ) : (
+            <>
+              <Box mb={2}>
+                <PriceGroupControl
+                  initialPriceGroup={initialPriceGroup}
+                  onChange={handlePriceGroupChange}
+                />
+              </Box>
+              <Grid container>
+                <Grid item xs={12} sm={6}>
+                  <PriceLevelList priceLevels={bids} isBid />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <PriceLevelList priceLevels={asks} />
+                </Grid>
+              </Grid>
+            </>
+          )}
         </Box>
       </Paper>
     </>

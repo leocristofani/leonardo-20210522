@@ -27,3 +27,10 @@ export type PriceGroup =
   | typeof PriceGroupOptions[7]
   | typeof PriceGroupOptions[8]
   | typeof PriceGroupOptions[9];
+
+export type PriceLevelDelta = [price: number, size: number];
+
+export interface OrderBookDeltas {
+  bids: PriceLevelDelta[];
+  asks: PriceLevelDelta[];
+}

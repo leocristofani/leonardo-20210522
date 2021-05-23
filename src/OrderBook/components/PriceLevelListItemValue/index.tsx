@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, BoxProps, Grid, Typography } from "@material-ui/core";
 
 import useStyles from "./styles";
@@ -9,7 +10,7 @@ export interface Props {
   minimumFractionDigits: number;
 }
 
-export default function PriceLevelListItemValue({
+function PriceLevelListItemValue({
   value,
   color,
   isBid,
@@ -27,3 +28,5 @@ export default function PriceLevelListItemValue({
     </Grid>
   );
 }
+
+export default React.memo(PriceLevelListItemValue);

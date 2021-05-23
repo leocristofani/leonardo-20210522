@@ -41,3 +41,4 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 - Use a service like Sentry to report errors
 - Use socket.io instead because it supports older browsers by falling back to `long polling`
 - Make `isBid` avaiable via context from OrderBook. The advantage is that I would not have to prop drill it, but then to test every component I would have to wrapped the tested component with this context.
+- Save the selected price group in LocalStorage, so when the user reloads the page it still shows the last selected price group.
