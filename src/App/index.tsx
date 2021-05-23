@@ -8,8 +8,6 @@ import getConfig from "../config";
 function App() {
   const config = getConfig();
 
-  console.log(config);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
