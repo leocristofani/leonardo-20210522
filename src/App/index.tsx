@@ -11,7 +11,7 @@ function App() {
       <AppBg />
       <Container maxWidth="md">
         <Box mt={6}>
-          <OrderBook />
+          <OrderBook productName="XBT/USD" />
         </Box>
       </Container>
     </ThemeProvider>

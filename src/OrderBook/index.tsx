@@ -1,17 +1,22 @@
 import { Box, Grid, Paper } from "@material-ui/core";
-// import Loader from "./components/Loader";
 
+import OrderBookErrorBoundary from "./components/OrderBookErrorBoundary";
+// import OrderBookLoader from "./components/OrderBookLoader";
 import PriceGroupControl from "./components/PriceGroupControl";
 import PriceLevelList from "./components/PriceLevelList";
 import ProductName from "./components/ProductName";
 
-export default function OrderBook() {
+interface Props {
+  productName: string;
+}
+
+function OrderBook({ productName }: Props) {
   return (
     <>
-      <ProductName>XBT/USD</ProductName>
+      <ProductName>{productName}</ProductName>
       <Paper elevation={2}>
         <Box p={3}>
-          {/* <Loader /> */}
+          {/* <OrderBookLoader /> */}
           <Box mb={2}>
             <PriceGroupControl />
           </Box>
@@ -26,5 +31,13 @@ export default function OrderBook() {
         </Box>
       </Paper>
     </>
+  );
+}
+
+export default function OrderBookWrapper(props: Props) {
+  return (
+    <OrderBookErrorBoundary productName={props.productName}>
+      <OrderBook {...props} />
+    </OrderBookErrorBoundary>
   );
 }

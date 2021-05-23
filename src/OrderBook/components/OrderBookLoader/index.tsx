@@ -1,7 +1,7 @@
 import { Box } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-function Loader() {
+function OrderBookLoader() {
   return (
     <Box p={5} textAlign="center">
       <CircularProgress />
@@ -9,4 +9,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default OrderBookLoader;
