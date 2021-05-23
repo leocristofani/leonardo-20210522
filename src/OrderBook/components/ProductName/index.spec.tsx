@@ -1,10 +1,9 @@
 import { screen, render } from "@testing-library/react";
-import faker from "faker";
 
 import ProductName, { Props } from "./";
 
 const defaultProps: Props = {
-  children: faker.random.word(),
+  children: "XXX/YY",
 };
 
 function arrangeTest(props = defaultProps) {
@@ -13,7 +12,7 @@ function arrangeTest(props = defaultProps) {
 
 describe("ProductName", () => {
   it("renders the product name", () => {
-    const productName = faker.random.word();
+    const productName = "KRA/CSS";
 
     arrangeTest({ ...defaultProps, children: productName });
 

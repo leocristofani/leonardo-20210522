@@ -3,10 +3,10 @@
 ## How to run the project?
 
 1. Open the terminal
-2. Clone the repo: `git clone git@github.com:leocristofani/leonardo-20210523.git`
-3. Go inside: `cd leonardo-20210523`
-4. Install the dependecies: `yarn install`
-5. Copy sample env. variables: `cp .env.example .env`
+2. Run `git clone git@github.com:leocristofani/leonardo-20210523.git` to clone the repo
+3. Run `cd leonardo-20210523` to go inside the project
+4. Run `yarn install` to install dependencies
+5. Run `cp .env.example .env` to copy sample environment variables
 6. Start the local dev. server: `yarn start`
 
 ## How to build the project?
@@ -17,13 +17,17 @@ As you can see from the env. variables file, you can build the orderbook to show
 
 ## How to run tests?
 
-There are both unit and integration tests with Jest. You can run these tests with the following commands:
+#### Jest tests
 
 - `yarn test` - run tests once
-
 - `yarn test:watch` - run tests during development to watch for changes
 
-## Environment Variables
+#### Cypress tests
+
+1. `yarn start` in one terminal window
+2. in another terminal window, run `cypress:run` to run Cypress in the terminal or `cypress:open` to run Cypress on the browser
+
+## Environment variables
 
 PS. Environment variables have to be prefixed with `REACT_APP_` because it's required by [Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 
@@ -37,7 +41,7 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 
 - `REACT_APP_ORDERBOOK_API_URL=wss://www.cryptofacilities.com/ws/v1`: URL to the realtime (web socket) API service.
 
-## Technology Stack
+## Technology stack
 
 - React
 - Material UI
@@ -45,11 +49,9 @@ PS. Environment variables have to be prefixed with `REACT_APP_` because it's req
 - Web Socket (native browser API)
 - React Testing Library
 - React Hooks Testing Library
-- Faker (generate random data for tests)
 
-## Code Considerations
+## Code sonsiderations
 
 - Use a service like Sentry to report errors
 - Use socket.io instead because it supports older browsers by falling back to `long polling`
-- Make `isBid` avaiable via context from OrderBook. The advantage is that I would not have to prop drill it, but then to test every component I would have to wrapped the tested component with this context.
 - Save the selected price group in LocalStorage, so when the user reloads the page it still shows the last selected price group.

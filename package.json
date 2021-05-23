@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:watch": "react-scripts test --watch",
+    "test:watch": "yarn test --watch",
+    "cypress:run": "./node_modules/.bin/cypress run",
+    "cypress:open": "./node_modules/.bin/cypress open",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -22,12 +24,12 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^6.0.0",
     "@testing-library/user-event": "^12.1.10",
-    "@types/faker": "^5.5.5",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "faker": "^5.5.3"
+    "cypress": "^7.3.0",
+    "mock-socket": "^9.0.3"
   },
   "eslintConfig": {
     "extends": [
