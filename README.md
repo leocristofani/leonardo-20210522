@@ -13,28 +13,29 @@
 
 Run `yarn build` to create a production version of the project in the `build` folder. If you're going to build the project in a CI env. like CircleCI or hosting provider like Netlify, Amazon, don't forget to supply the necessary environment variables. Refer to `.env.sample`.
 
-As you can see from the env. variables file, you can build the orderbook to show information about any project, as long as you sypply the correct project id and project name.
+As you can see from the env. variables file, you can build the orderbook to show information about any product, as long as you sypply the correct product id and product name.
 
 ## How to run tests?
 
 There are both unit and integration tests with Jest. You can run these tests with the following commands:
 
-`yarn test` - run tests once
-`yarn test:watch` - run tests during development to watch for changes
+- `yarn test` - run tests once
+
+- `yarn test:watch` - run tests during development to watch for changes
 
 ## Environment Variables
 
 PS. Environment variables have to be prefixed with `REACT_APP_` because it's required by [Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 
-`REACT_APP_ORDERBOOK_MIN_UPDATE_INTERVAL=150`: is how often (in milliseconds) we update the UI based on price level deltas that come from the server. The realtime API that we use is very fast, so in order not to cause issues on the user machine due to too many UI updates, we use this interval to throttle the UI updates. I made this configurable to make it easy to change based on product/design feedback.
+- `REACT_APP_ORDERBOOK_MIN_UPDATE_INTERVAL=150`: is how often (in milliseconds) we update the UI based on price level deltas that come from the server. The realtime API that we use is very fast, so in order not to cause issues on the user machine due to too many UI updates, we use this interval to throttle the UI updates. I made this configurable to make it easy to change based on product/design feedback.
 
-`REACT_APP_ORDERBOOK_INITIAL_PRICE_GROUP=1`: How the orderbook groups order pricing.
+- `REACT_APP_ORDERBOOK_INITIAL_PRICE_GROUP=1`: How the orderbook groups order pricing.
 
-`REACT_APP_ORDERBOOK_PRODUCT_ID=PI_XBTUSD`: The id of the product which you want to display information.
+- `REACT_APP_ORDERBOOK_PRODUCT_ID=PI_XBTUSD`: The id of the product which you want to display information.
 
-`REACT_APP_ORDERBOOK_PRODUCT_NAME=XBT/USD` The name of the product which you want to display information.
+- `REACT_APP_ORDERBOOK_PRODUCT_NAME=XBT/USD` The name of the product which you want to display information.
 
-`REACT_APP_ORDERBOOK_API_URL=wss://www.cryptofacilities.com/ws/v1`: URL to the realtime (web socket) API service.
+- `REACT_APP_ORDERBOOK_API_URL=wss://www.cryptofacilities.com/ws/v1`: URL to the realtime (web socket) API service.
 
 ## Technology Stack
 
