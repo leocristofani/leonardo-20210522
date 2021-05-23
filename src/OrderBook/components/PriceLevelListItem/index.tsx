@@ -1,53 +1,43 @@
 import { Grid, useTheme } from "@material-ui/core";
 
-import { PriceLevel, PriceLevelType } from "../../types";
-import PriceLevelListItemBar from "./PriceLevelListItemBar";
-import PriceLevelListItemValue from "./PriceLevelListItemValue";
 import useStyles from "./styles";
+import { PriceLevel } from "../../types";
+import PriceLevelListItemBar from "../PriceLevelListItemBar";
+import PriceLevelListItemValue from "../PriceLevelListItemValue";
 
 export interface Props {
+  isBid: boolean;
   maxTotal: number;
   priceLevel: PriceLevel;
-  priceLevelType: PriceLevelType;
 }
 
-export function PriceLevelListItem({
-  priceLevel,
-  priceLevelType,
-  maxTotal,
-}: Props) {
-  const { palette } = useTheme();
-  const styles = useStyles();
+export function PriceLevelListItem({ isBid, priceLevel, maxTotal }: Props) {
+  const styles = useStyles({ isBid });
 
-  const isBid = priceLevelType === "bid";
+  const { palette } = useTheme();
   const priceColor = isBid ? palette.success.main : palette.error.main;
-  const barBgColor = isBid ? palette.success.light : palette.error.light;
-  const valueAlign = isBid ? "right" : "left";
-  const gridDirection = isBid ? "row" : "row-reverse";
 
   return (
     <>
-      <Grid container direction={gridDirection} className={styles.root}>
+      <Grid container className={styles.root}>
         <PriceLevelListItemBar
-          bgcolor={barBgColor}
-          left={!isBid && 0.5}
-          right={isBid && 0.5}
+          isBid={isBid}
           width={`${(priceLevel.total / maxTotal) * 100}%`}
         />
         <PriceLevelListItemValue
-          align={valueAlign}
+          isBid={isBid}
           color={palette.text}
           value={priceLevel.total}
           minimumFractionDigits={0}
         />
         <PriceLevelListItemValue
-          align={valueAlign}
+          isBid={isBid}
           color={palette.text}
           value={priceLevel.size}
           minimumFractionDigits={0}
         />
         <PriceLevelListItemValue
-          align={valueAlign}
+          isBid={isBid}
           color={priceColor}
           value={priceLevel.price}
           minimumFractionDigits={2}

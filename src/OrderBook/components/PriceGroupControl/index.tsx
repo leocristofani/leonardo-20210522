@@ -2,7 +2,7 @@ import { Box, Typography } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import RemoveIcon from "@material-ui/icons/RemoveCircleOutlineOutlined";
 
-import PriceGroupControlButton from "./PriceGroupControlButton";
+import PriceGroupControlButton from "../PriceGroupControlButton";
 
 export default function PriceGroupControl() {
   return (

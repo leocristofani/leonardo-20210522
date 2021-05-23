@@ -5,12 +5,9 @@ interface StyleProps {
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
-  root: {
-    zIndex: 1,
-    marginBottom: 1,
-    position: "relative",
+  text: {
     [theme.breakpoints.up("sm")]: {
-      flexDirection: ({ isBid }) => (isBid ? "row" : "row-reverse"),
+      textAlign: ({ isBid }) => (isBid ? "right" : "left"),
     },
   },
 }));

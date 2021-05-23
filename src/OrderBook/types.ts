@@ -3,5 +3,3 @@ export interface PriceLevel {
   size: number;
   total: number;
 }
-
-export type PriceLevelType = "bid" | "ask";
