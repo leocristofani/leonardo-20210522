@@ -22,7 +22,7 @@ Since this site is already served over a CDN in Netlify, I would evaluate how I 
 - Already mentioned above, close the socket connection when the user navigates away from the browser tab and subscribe back when the user reopens the tab.
 - Evaluate other ways to reduce the load on the server
 
-It's also worth mentioning that this version of the OrderBook does not use images, but if it were to use images that I'd optimize them
+It's also worth mentioning that this version of the OrderBook does not use images, but if it were to use images then I'd optimize them
 
 ## What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
@@ -38,15 +38,15 @@ The latest version of Typescript is 4.2, but I haven't used any feature from thi
 
 - Monitor the site for performance issues with a service like Sentry
 - Make sure the issue is not caused by the server
-- Identify the kind of performance issue we're having (preferably with the help of Sentry in this case). Is it an issue with loading assets, executing scripts or rendering?
-- If the issue is with loading assets for example, I'd check if the image, icon or font files are optimized. Make sure script and style files are minified and tree-shaked
+- Identify the kind of performance issue I'm facing (preferably with the help of Sentry in this case). Is it an issue with loading assets, executing scripts or rendering?
+- If the issue is with loading assets for example, I'd check if the image, icon or font files are optimized. Make sure script and style files are properly minified and tree-shaked
 - The Performance and Memory features in Chrome devtools to can help to trace down script execution and rendering issues
 
 #### Have you ever had to do this?
 
 - I had to optimize the bundle size of an [Interactive Video Player](https://leocristofani.com.br/projects/interactive-video-player)
 - The [Analytics Dashboard](https://leocristofani.com.br/projects/analytics-dashboard) project I worked on presented some rendering challenges that I had to deal with
-- Performance issue with executing scripts was a big part of this very project :). I used the Chrome devtools Performance and Memory features extensively discover what parts of the code that needed optimizations
+- Performance issue with executing scripts was a big part of this very project :). I used the Chrome devtools Performance and Memory features extensively to discover what parts of the code needed optimizations
 
 ## Can you describe common security concerns to consider for a frontend developer?
 
@@ -56,12 +56,12 @@ In which the attacker injects malicious scripts into a site. There are many ways
 
 - WYSIWYG and embedded content
 - Form data that's not properly sanitized/escaped
-- Give the user control over URLs (older browsers still execute scripts in URL addresses)
-- Hidden content in images and PDF
+- Give the user control over URLs (older browsers still execute scripts in URLs)
+- Hidden content in images and PDFs
 
-To prevent from these attacks we should:
+How to prevent?
 
-- Always serve our sites over https
+- Always use https
 - Sanitize user data on the way into the server/database and on the way into the UI
 - Treat user data as value not as code
 - Restrict the extensions of uploaded files
@@ -69,15 +69,15 @@ To prevent from these attacks we should:
 
 #### CSRF (Cross-site Request Forgery)
 
-In which the attacker tricks the user into clicking a link or submitting a form that performs a transaction in a system where the user is authenticated, usually with basic authentication of cookie. To prevent this kind of attach we should
+In which the attacker tricks the user into clicking a link or submitting a form that performs a transaction in a system where the user is authenticated, usually with basic authentication of a cookie. To prevent this kind of attach we should:
 
-- The server should not change data with a get request
+- Not let the server change data with a GET http requests
 - Use CSRF Token in forms
-- Restrictive CORS settings
+- Use restrictive CORS settings
 
 #### Third Party Assets
 
-We should be vigilant with the third party scripts that run inside our sites. Some things to take into consideration when using third party scripts:
+We should be careful with the third party scripts that run inside our sites. Some things to take into consideration when using third party scripts:
 
 - Evaluate NPM projects on Github for popularity, contributors, comments, questions, etc. It's always recommended to stick to LTS versions
 - If we need to source scripts from a third party CDN, use the `integrity and crossorigin` attributes in the script tag
